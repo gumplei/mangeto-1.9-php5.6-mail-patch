@@ -1,0 +1,17 @@
+--- a/lib/Zend/Mail/Protocol/Abstract.php	2017-01-13 15:43:30.872382180 +0800
++++ b/lib/Zend/Mail/Protocol/Abstract.php	2017-02-02 18:49:52.185070727 +0800
+@@ -264,7 +264,13 @@
+         $errorStr = '';
+ 
+         // open connection
+-        $this->_socket = @stream_socket_client($remote, $errorNum, $errorStr, self::TIMEOUT_CONNECTION);
++	$streamContext = stream_context_create([
++	    'ssl' => [
++		'verify_peer' => false,
++		'verify_peer_name' => false
++	    ]
++	]);
++        $this->_socket = @stream_socket_client($remote, $errorNum, $errorStr, self::TIMEOUT_CONNECTION,STREAM_CLIENT_CONNECT, $streamContext);
+ 
+         if ($this->_socket === false) {
+             if ($errorNum == 0) {
