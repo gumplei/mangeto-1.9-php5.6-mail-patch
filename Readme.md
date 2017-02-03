@@ -1,4 +1,4 @@
-Patch for Magento 1.9 on PHP 5.6 SMTP Connect with TLS with Self-signed Certificate
+Patch for Magento 1.9 on PHP 5.6 SMTP Connection with TLS with Self-signed Certificate
 ===================================================================================
 
 Description
