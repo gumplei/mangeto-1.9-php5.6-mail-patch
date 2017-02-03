@@ -1,9 +1,9 @@
 Patch for Magento 1.9 on PHP 5.6 SMTP Connect with TLS with Self-signed Certificate
------------------------------------------------------------------------------------
+===================================================================================
 
 Description
-===========
-As PHP 5.6 change the ssl behaviour, it verify the hostname and the certification CN name by default which is different from PHP 5.5. Some SMTP service will not work after upgrade the PHP version to 5.6. I created this patch to make this SSL behaviour same as the PHP 5.5
+-----------
+As PHP 5.6 changed the ssl behaviour, it verifys the hostname and the certification CN name by default which is different from PHP 5.5. Some SMTP service will not work after upgrade the PHP version to 5.6. I create this patch to make this SSL behaviour same as the PHP 5.5
 
 I just add the follow code to lib/Zend/Mail/Protocol/Abstract.php
 
@@ -19,7 +19,7 @@ I just add the follow code to lib/Zend/Mail/Protocol/Abstract.php
 ```
 
 Usage
-=====
+-----
 
 ```
 cd [your magento installed folder]
